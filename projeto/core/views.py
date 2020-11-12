@@ -6,6 +6,7 @@ from django.views.generic import RedirectView
 
 from utils.decorators import LoginRequiredMixin, StaffRequiredMixin
 
+
 class HomeRedirectView(LoginRequiredMixin, RedirectView):
     def get_redirect_url(self, **kwargs):
         return reverse('home')
