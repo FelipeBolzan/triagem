@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     
-    'triagem',
+    'triagens',
     'core',
     'usuario',
 ]
