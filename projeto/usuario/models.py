@@ -32,7 +32,7 @@ class Usuario(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
 
-    tipo = models.CharField(_('Tipo do usuário *'), max_length=15, choices=TIPOS_USUARIOS, default='PROFESSOR', help_text='* Campos obrigatórios')
+    tipo = models.CharField(_('Tipo do usuário *'), max_length=15, choices=TIPOS_USUARIOS, default='ENFERMEIRO', help_text='* Campos obrigatórios')
     nome = models.CharField(_('Nome completo *'), max_length=100)
     email = models.EmailField(_('Email *'), unique=True, max_length=100, db_index=True)
     telefone = models.CharField(_('Telefone'), max_length=15)
@@ -51,10 +51,10 @@ class Usuario(AbstractBaseUser):
         verbose_name_plural =   ('usuários')
 
     def __str__(self):
-        return '%s - %s' % (self.matricula, self.nome)
+        return '%s - %s' % (self.tipo, self.nome)
 
-    def get_matricula(self):
-        return self.matricula
+    def get_tipo(self):
+        return self.tipo
 
     def has_module_perms(self, app_label):
         return True

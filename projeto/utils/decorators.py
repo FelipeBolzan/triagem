@@ -34,7 +34,7 @@ class EnfermeiroRequiredMixin(object):
     """
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.tipo == 'SECRETÁRIA' and not request.user.tipo == 'ADMINISTRADOR':
+        if not request.user.tipo == 'ENFERMEIRO' and not request.user.tipo == 'ADMINISTRADOR':
             messages.error(
                 request,
                 'Você não tem permissão para acessar esta área ou'

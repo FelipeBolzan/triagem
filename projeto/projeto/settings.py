@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['localhost']
 
-#AUTH_USER_MODEL = 'usuario.Usuario'
+AUTH_USER_MODEL = 'usuario.Usuario'
 
 # Application definition
 
