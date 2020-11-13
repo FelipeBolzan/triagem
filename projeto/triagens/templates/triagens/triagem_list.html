@@ -14,22 +14,10 @@
 	<table class="table table-hover">
   		<thead>
 			<th>Código</th>
+			<th>Nome do paciente</th>
 			<th>Data</th>
 			<th>Hora</th>
-			<th>Nome do paciente</th>
-			<th>Idade</th>
-			<th>Altura</th>
-			<th>IMC</th>
-			<th>Febre</th>
-			<th>Dor de cabeça</th>
-			<th>Secreção nasal ou espirro</th>
-			<th>Dor ou irritação na garganta</th>
-			<th>Tosse seca</th>
-			<th>Dificuldade respiratória</th>
-			<th>Dores no corpo</th>
-			<th>Diarreia</th>
-			<th>Viagem</th>
-			<th>Contato</th>
+			<th>Resultado</th>
 			<th class="text-center">Visualizar</th>
   			<th class="text-center">Editar</th>
   			<th class="text-center">Excluir</th>
@@ -39,10 +27,11 @@
 			{% for triagem in object_list %}
 				{% if user.tipo == 'ADMINISTRADOR' %}  
 					<tr>
-						<td>{{ triagem.curso }} </td>
+						<td>{{ triagem.codigo }} </td>
 						<td>{{ triagem.nomePaciente }} </td>
 						<td>{{ triagem.data|date:'d/m/Y' }}</td>
 						<td>{{ triagem.hora }}</td>
+						<td>{{ triagem.ResultadoTriagem }}</td>
 						<td class="text-center"> 
 							<span  data-toggle="tooltip"  title='Visualizar triagem'>
 								{% bootstrap_button content='' href=triagem.get_visualiza_url button_type='link' icon='eye-open' button_class='btn btn-success' size='sm' %}

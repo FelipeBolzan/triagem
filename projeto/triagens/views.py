@@ -20,20 +20,10 @@ class TriagemListView(LoginRequiredMixin, ListView):
     
 class TriagemCreateView(LoginRequiredMixin,  EnfermeiroRequiredMixin, CreateView):
     model = Triagem
-    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
+    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura' , 'peso', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
     , 'tosseSeca', 'dificuldadeRespiratoria', 'doresCorpo', 'diarreia', 'viagem', 'contato' ,'ResultadoTriagem']
     success_url = 'triagem_list'
     
-    def form_valid(self, form):
-        limite_mb = 100 * 1024 * 1024
-        triagem = form.instance
-        
-        if (not triagem.arquivo_anexo1 or (triagem.arquivo_anexo1 and triagem.arquivo_anexo1.file.size <= limite_mb)):
-            form.save()
-            return super(TriagemCreateView, self).form_valid(form)
-        else:
-            messages.warning(self.request, 'Sistema somente suporta 100 Mb no anexo!')
-            return super(TriagemCreateView, self).form_invalid(form)
     
     def get_success_url(self):
         messages.success(self.request, 'Triagem cadastrada com sucesso na plataforma!')
@@ -42,20 +32,10 @@ class TriagemCreateView(LoginRequiredMixin,  EnfermeiroRequiredMixin, CreateView
 
 class TriagemUpdateView(LoginRequiredMixin,  EnfermeiroRequiredMixin, UpdateView):
     model = Triagem
-    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
+    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura', 'peso', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
     , 'tosseSeca', 'dificuldadeRespiratoria', 'doresCorpo', 'diarreia', 'viagem', 'contato' ,'ResultadoTriagem']
     success_url = 'triagem_list'
     
-    def form_valid(self, form):
-        limite_mb = 100 * 1024 * 1024
-        triagem = form.instance
-        
-        if (not triagem.arquivo_anexo1 or (triagem.arquivo_anexo1 and triagem.arquivo_anexo1.file.size <= limite_mb)):
-            form.save()
-            return super(TriagemUpdateView, self).form_valid(form)
-        else:
-            messages.warning(self.request, 'Sistema somente suporta 100 Mb no anexo!')
-            return super(TriagemUpdateView, self).form_invalid(form)
     
     def get_success_url(self):
         messages.success(self.request, 'Dados da triagem atualizados com sucesso na plataforma!')

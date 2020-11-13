@@ -18,6 +18,7 @@ class Triagem(models.Model):
     nomePaciente = models.CharField(_('Nome Completo do Paciente *'), max_length=50)
     idade = models.IntegerField(_('Idade'))
     altura = models.FloatField(_('Altura'))
+    peso = models.FloatField(_('Peso'))    
     IMC = models.FloatField(_('IMC'))
     #Sintomas
     febre = models.BooleanField(_('Tem Febre?'))
