@@ -138,23 +138,7 @@
 					</td>
 				</tr>
 
-				{% if object.ResultadoTriagem.astype(int) >= '1'  and object.ResultadoTriagem < '9'%}
-					<tr style="background-color: #10a24d; color: #ffffff">
-						<td>Resultado: Risco Baixo</td>
-					</tr>
-				{% elif object.ResultadoTriagem > '9' and object.ResultadoTriagem <= '19' %}
-					<tr style="background-color: #f28422; color: #ffffff">
-						<td>Resultado: Risco Médio</td>
-					</tr>
-				{% elif object.ResultadoTriagem >= 20 %}
-					<tr style="background-color: #eb2f30; color: #ffffff">
-						<td>Resultado: Risco Alto</td>
-					</tr>	
-				{% else %}
-					<tr style="background-color: #337ab7; color: #ffffff">
-						<td>Resultado: Não apresentou sintomas </td>
-					</tr>
-				{% endif %} 
+				
 
 
 			</tbody>

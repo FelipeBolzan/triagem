@@ -32,7 +32,7 @@ class Triagem(models.Model):
     viagem = models.BooleanField(('Viajou, nos últimos 14 dias, para um local com casos confirmados de COVID-19?'))
     contato = models.BooleanField(('Esteve em contato, nos últimos 14 dias, com um caso diagnosticados com COVID-19?'))
     
-    ResultadoTriagem = models.CharField(('Resultado'), max_length=50)
+    ResultadoTriagem = models.CharField(('Resultado'), max_length=5)
     slug = models.SlugField('Hash',max_length= 200, null=True, blank=True)
     
     objects = models.Manager()
