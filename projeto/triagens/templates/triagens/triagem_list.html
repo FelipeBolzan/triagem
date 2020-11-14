@@ -34,17 +34,17 @@
 						<td>{{ triagem.ResultadoTriagem }}</td>
 						<td class="text-center"> 
 							<span  data-toggle="tooltip"  title='Visualizar Triagem'>
-								{% bootstrap_button content='' href=ata.get_visualiza_url button_type='link' icon='eye-open' button_class='btn btn-success' size='sm' %}
+								{% bootstrap_button content='' href=triagem.get_visualiza_url button_type='link' icon='eye-open' button_class='btn btn-success' size='sm' %}
 							</span>
 						</td>
 						<td class="text-center">
 							<span  data-toggle="tooltip"  title='Editar'>
-							{% bootstrap_button content='' href=ata.get_absolute_url button_type='link' icon='edit' button_class='btn btn-primary' size='sm' %}
+							{% bootstrap_button content='' href=triagem.get_absolute_url button_type='link' icon='edit' button_class='btn btn-primary' size='sm' %}
 							</span>
 						</td>
 						<td class="text-center">
 							<span  data-toggle="tooltip"  title='Excluir'>
-							{% bootstrap_button content='' href=ata.get_delete_url button_type='link' icon='trash' button_class='btn btn-danger' size='sm' %}
+							{% bootstrap_button content='' href=triagem.get_delete_url button_type='link' icon='trash' button_class='btn btn-danger' size='sm' %}
 							</span>
 						</td>
 					</tr>
