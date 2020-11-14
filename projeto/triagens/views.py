@@ -20,13 +20,12 @@ class TriagemListView(LoginRequiredMixin, ListView):
     
 class TriagemCreateView(LoginRequiredMixin,  EnfermeiroRequiredMixin, CreateView):
     model = Triagem
-    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura' , 'peso', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
+    fields = ['codigo', 'data', 'hora', 'nomePaciente', 'idade', 'altura', 'peso', 'IMC', 'febre', 'dorCabeca', 'secrecaoEspirro', 'dorGarganta'
     , 'tosseSeca', 'dificuldadeRespiratoria', 'doresCorpo', 'diarreia', 'viagem', 'contato' ,'ResultadoTriagem']
     success_url = 'triagem_list'
     
-    
     def get_success_url(self):
-        messages.success(self.request, 'Triagem cadastrada com sucesso na plataforma!')
+        messages.success(self.request, 'Ata cadastrada com sucesso na plataforma!')
         return reverse(self.success_url)
         
 
@@ -36,9 +35,8 @@ class TriagemUpdateView(LoginRequiredMixin,  EnfermeiroRequiredMixin, UpdateView
     , 'tosseSeca', 'dificuldadeRespiratoria', 'doresCorpo', 'diarreia', 'viagem', 'contato' ,'ResultadoTriagem']
     success_url = 'triagem_list'
     
-    
     def get_success_url(self):
-        messages.success(self.request, 'Dados da triagem atualizados com sucesso na plataforma!')
+        messages.success(self.request, 'Dados da ata atualizados com sucesso na plataforma!')
         return reverse(self.success_url)
 
 

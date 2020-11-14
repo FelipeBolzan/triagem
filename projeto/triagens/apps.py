@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class TriagemConfig(AppConfig):
-    name = 'triagem'
+class TriagensConfig(AppConfig):
+    name = 'triagens'

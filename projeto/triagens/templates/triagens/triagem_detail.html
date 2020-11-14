@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-	{% include 'Triagns/includes/_barra_botoes.html' %}
+	{% include 'triagens/includes/_barra_botoes.html' %}
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			Curso: {{ object.curso }}
@@ -17,41 +17,10 @@
 					<td>Data e hora:</td>
 					<td>Número {{ object.codigo }} em {{ object.data|date:'d/m/Y' }} às {{ object.hora }}</td>
 				</tr>
-				<tr>
-					<td>Validada? </td>
-					<td>
-						{% if object.validada %}
-							Sim
-						{% else %}
-							Não
-						{% endif%}
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
 	
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			Texto e anexo
-		</div>
-		<div class="panel-body">
-			{{ object.texto|linebreaks }}
-			<br>
-			Arquivo em Anexo<br>
-			<span  data-toggle="tooltip"  title='Arquivo Anexo da Triagem'>
-				{% if triagem.arquivo_anexo1 %}
-					<a href="{{ triagem.arquivo_anexo1.url }}" target="_blank" class="btn btn-sm btn-success">
-						{% bootstrap_icon 'download' %}
-					</a>
-				{% else %}
-					<a href="" target="_blank" class="btn btn-sm btn-warning disabled">
-						{% bootstrap_icon 'download' %}
-					</a>
-				{% endif %}
-			</span>
-		</div>
-		
-	</div>
+	
 	{% include 'triagens/includes/_barra_botoes.html' %}
 {% endblock %}

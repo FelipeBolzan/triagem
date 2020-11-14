@@ -35,7 +35,7 @@ class Usuario(AbstractBaseUser):
     tipo = models.CharField(_('Tipo do usuário *'), max_length=15, choices=TIPOS_USUARIOS, default='ENFERMEIRO', help_text='* Campos obrigatórios')
     nome = models.CharField(_('Nome completo *'), max_length=100)
     email = models.EmailField(_('Email *'), unique=True, max_length=100, db_index=True)
-    telefone = models.CharField(_('Telefone'), max_length=15)
+    celular = models.CharField(_('Celular'), max_length=15)
     endereco = models.CharField(_('Endereco'), max_length=100)
     
     is_active = models.BooleanField(_('Ativo'), default=False, help_text='Se ativo, o usuário tem permissão para acessar o sistema')
