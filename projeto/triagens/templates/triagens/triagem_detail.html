@@ -8,16 +8,157 @@
 {% block content %}
 	{% include 'triagens/includes/_barra_botoes.html' %}
 	<div class="panel panel-default">
-		<div class="panel-heading">
-			Curso: {{ object.curso }}
+		<div class="panel-heading" style="background-color: #337ab7; color: #ffffff">
+			Paciente: {{ object.nomePaciente }} 
 		</div>
 		<table class="table table-hover">
 			<tbody>
 				<tr>
-					<td>Data e hora:</td>
-					<td>Número {{ object.codigo }} em {{ object.data|date:'d/m/Y' }} às {{ object.hora }}</td>
+					<td>Código: {{ object.codigo }}</td>
+				</tr>
+				<tr>
+					<td>Data: {{ object.data|date:'d/m/Y' }}  às {{ object.hora }}</td>
 				</tr>
 			</tbody>
+		</table>
+
+		<div class="panel-heading" style="background-color: #337ab7; color: #ffffff">
+			Informações pessoais:
+		</div>
+		<table class="table table-hover">
+			<tbody>
+				<tr>
+					<td>Idade: {{ object.idade }}</td>
+				</tr>
+				<tr>
+					<td>Altura: {{ object.altura }}</td>
+				</tr>
+				<tr>
+					<td>Peso: {{ object.peso }}</td>
+				</tr>
+				<tr>
+					<td>IMC: {{ object.IMC }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="panel-heading" style="background-color: #337ab7; color: #ffffff">
+			Sintomas: 
+		</div>
+		<table class="table table-hover">
+			<tbody>
+				<tr>
+					<td>Febre: 
+						{% if object.febre %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Dor de cabeça:
+						{% if object.dorCabeca %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Secreção nasal ou espirro:
+						{% if object.ScrecaoEspirro %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Dor de Garganta:
+						{% if object.dorGarganta %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Tosse seca:
+						{% if object.tosseSeca %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Dificuldade respiratória:
+						{% if object.dificuldadeRespiratoria %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Dores no corpo:
+						{% if object.doresCorpo %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>diarreia:
+						{% if object.diarreia %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Viagem:
+						{% if object.viagem %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>Contato:
+						{% if object.contato %}
+							{% bootstrap_icon 'ok-circle' size='sm' %}
+						{% else %}
+							{% bootstrap_icon 'remove-circle' size='sm' %}
+						{% endif %}
+					</td>
+				</tr>
+
+				{% if object.ResultadoTriagem.astype(int) >= '1'  and object.ResultadoTriagem < '9'%}
+					<tr style="background-color: #10a24d; color: #ffffff">
+						<td>Resultado: Risco Baixo</td>
+					</tr>
+				{% elif object.ResultadoTriagem > '9' and object.ResultadoTriagem <= '19' %}
+					<tr style="background-color: #f28422; color: #ffffff">
+						<td>Resultado: Risco Médio</td>
+					</tr>
+				{% elif object.ResultadoTriagem >= 20 %}
+					<tr style="background-color: #eb2f30; color: #ffffff">
+						<td>Resultado: Risco Alto</td>
+					</tr>	
+				{% else %}
+					<tr style="background-color: #337ab7; color: #ffffff">
+						<td>Resultado: Não apresentou sintomas </td>
+					</tr>
+				{% endif %} 
+
+
+			</tbody>
+			
 		</table>
 	</div>
 	
