@@ -18,7 +18,7 @@ from .models import Usuario
 # from .forms import UsuarioRegisterForm
 
 
-class UsuarioListView(LoginRequiredMixin, StaffRequiredMixin,ListView):
+class UsuarioListView(LoginRequiredMixin, ListView):
     model = Usuario
 
 
